@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcrfd4w5tu4oq"]
+[gd_scene load_steps=5 format=3 uid="uid://bcrfd4w5tu4oq"]
 
 [ext_resource type="Texture2D" uid="uid://cyvb6pda5orfh" path="res://assets/ui/panel_beige.png" id="1_v6tfm"]
+[ext_resource type="Script" path="res://scenes/level_button/level_button.gd" id="2_8lpx7"]
 [ext_resource type="LabelSettings" uid="uid://vl83dx0pg7t7" path="res://assets/lg_48_wh.tres" id="2_375f1"]
 [ext_resource type="LabelSettings" uid="uid://bdnn42unha81i" path="res://assets/lg_24_wh.tres" id="3_jet1u"]
 
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(50, 50)
 texture_normal = ExtResource("1_v6tfm")
+script = ExtResource("2_8lpx7")
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -40,3 +42,7 @@ text = "1000"
 label_settings = ExtResource("3_jet1u")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

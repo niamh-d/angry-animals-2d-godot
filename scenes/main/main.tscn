@@ -46,9 +46,11 @@ layout_mode = 2
 
 [node name="LevelButton2" parent="TextureRect/HB" instance=ExtResource("2_y20jl")]
 layout_mode = 2
+level_num = 2
 
 [node name="LevelButton3" parent="TextureRect/HB" instance=ExtResource("2_y20jl")]
 layout_mode = 2
+level_num = 3
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -58,6 +60,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.0523599
+mouse_filter = 2
 
 [node name="TitleLabel" type="Label" parent="MC"]
 layout_mode = 2
