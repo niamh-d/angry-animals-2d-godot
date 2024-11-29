@@ -1,10 +1,18 @@
 extends RigidBody2D
 
 enum ANIMAL_STATE {READY, DRAG, RELEASE}
+
+const DRAG_LIMIT_MAX: Vector2 = Vector2(0, 60)
+const DRAG_LIMIT_MIN: Vector2 = Vector2(-60, 0)
+
+var _start: Vector2 = Vector2.ZERO
+var _drag_start: Vector2 = Vector2.ZERO
+var _dragged_vector: Vector2 = Vector2.ZERO
 var _state: ANIMAL_STATE
 
 func _ready() -> void:
 	_state = ANIMAL_STATE.READY
+	_start = position
 
 func _physics_process(delta: float) -> void:
 	update(delta)
@@ -14,7 +22,7 @@ func set_new_state(new_state: ANIMAL_STATE) -> void:
 	if _state == ANIMAL_STATE.RELEASE:
 		freeze = false
 	elif _state == ANIMAL_STATE.DRAG:
-		pass
+		_drag_start = get_global_mouse_position()
 
 func detect_release() -> bool:
 	if _state == ANIMAL_STATE.DRAG:
@@ -23,12 +31,29 @@ func detect_release() -> bool:
 			return true
 	return false
 
+func get_dragged_vector(gmp: Vector2) -> Vector2:
+	return gmp - _drag_start
+	
+func drag_within_limits() -> void:
+	_dragged_vector.x = clampf(
+		_dragged_vector.x,
+		DRAG_LIMIT_MIN.x,
+		DRAG_LIMIT_MAX.x
+	)
+	_dragged_vector.y = clampf(
+		_dragged_vector.y,
+		DRAG_LIMIT_MIN.y,
+		DRAG_LIMIT_MAX.y
+	)
+	position = _start + _dragged_vector
+
 func update_drag() -> void:
 	if detect_release():
 		return
 		
 	var global_mouse_pos: Vector2 = get_global_mouse_position()
-	position = global_mouse_pos
+	_dragged_vector = get_dragged_vector(global_mouse_pos)
+	drag_within_limits()
 
 func update(delta: float) -> void:
 	match _state:
