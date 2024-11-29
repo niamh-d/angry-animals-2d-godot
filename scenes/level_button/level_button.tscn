@@ -38,7 +38,7 @@ vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="MC/VBoxContainer"]
 layout_mode = 2
-text = "1000"
+text = "999"
 label_settings = ExtResource("3_jet1u")
 horizontal_alignment = 1
 vertical_alignment = 1

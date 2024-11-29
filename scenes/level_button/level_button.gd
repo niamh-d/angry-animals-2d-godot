@@ -12,11 +12,13 @@ var _level_scene: PackedScene
 
 func _ready() -> void:
 	level_label.text = str(level_num)
+	var best_score = ScoreManager.get_best_score_for_level(str(level_num))
+	score_label.text = str(best_score)
 	_level_scene = load("res://scenes/level/level_%s.tscn" % level_num)
 
 func _on_pressed() -> void:
+	ScoreManager.set_level_selected(level_num)
 	get_tree().change_scene_to_packed(_level_scene)
-
 
 func _on_mouse_entered() -> void:
 	scale = HOVER_SCALE
