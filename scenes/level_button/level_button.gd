@@ -17,8 +17,8 @@ func _ready() -> void:
 	_level_scene = load("res://scenes/level/level_%s.tscn" % level_num)
 
 func _on_pressed() -> void:
-	ScoreManager.set_level_selected(level_num)
-	get_tree().change_scene_to_packed(_level_scene)
+	SceneSwitcherManager.set_current_level(level_num)
+	SceneSwitcherManager.load_level(level_num)
 
 func _on_mouse_entered() -> void:
 	scale = HOVER_SCALE

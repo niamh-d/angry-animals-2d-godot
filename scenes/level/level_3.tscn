@@ -7,21 +7,27 @@
 [node name="Level" instance=ExtResource("1_whk3o")]
 
 [node name="Cup" parent="." index="3" instance=ExtResource("2_jjc5n")]
-position = Vector2(456, 534)
+position = Vector2(577, 529)
 
 [node name="Cup2" parent="." index="4" instance=ExtResource("2_jjc5n")]
 position = Vector2(818, 515)
 
 [node name="Cup3" parent="." index="5" instance=ExtResource("2_jjc5n")]
-position = Vector2(1005, 284)
+position = Vector2(974, 265)
 
-[node name="Barrier" parent="." index="8" instance=ExtResource("3_bn78t")]
+[node name="Cup4" parent="." index="6" instance=ExtResource("2_jjc5n")]
+position = Vector2(499, 354)
+
+[node name="Cup5" parent="." index="7" instance=ExtResource("2_jjc5n")]
+position = Vector2(1036, 435)
+
+[node name="Barrier" parent="." index="10" instance=ExtResource("3_bn78t")]
 position = Vector2(1103, 143)
 
-[node name="Barrier2" parent="." index="9" instance=ExtResource("3_bn78t")]
+[node name="Barrier2" parent="." index="11" instance=ExtResource("3_bn78t")]
 position = Vector2(634, 243)
 rotation = -0.705113
 
-[node name="Barrier3" parent="." index="10" instance=ExtResource("3_bn78t")]
+[node name="Barrier3" parent="." index="12" instance=ExtResource("3_bn78t")]
 position = Vector2(792, 135)
 rotation = -2.15374
